@@ -4,14 +4,14 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 
-namespace CAPstone.Models
+namespace Preferences.Models
 {
-    public class Preferences
+    public class Preference
     {
         [Key]
         public int Id { get; set; }
 
         [Display(Name = "Choose Preferences")]
-        public string Preference { get; set; }
+        public string Preferences { get; set; }
     }
 }

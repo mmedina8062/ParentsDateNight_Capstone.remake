@@ -1,4 +1,4 @@
-﻿using CAPstone.Models;
+﻿using Preferences.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -6,24 +6,24 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 
-namespace CAPstone.Controllers.PreferenceAPI
+namespace Preferences.Controllers
 {
-    public class PreferenceController : ApiController
+    public class PreferencesController : ApiController
     {
         private ApplicationDbContext context;
 
-        public PreferenceController()
+        public PreferencesController()
         {
             context = new ApplicationDbContext();
         }
         // GET: api/Preference
-        public IEnumerable<Preferences> Get()
+        public IEnumerable<Preference> Get()
         {
             return context.Preferences.ToList();
         }
 
         // GET: api/Preference/5
-        public Preferences GetPreferences(int id)
+        public Preference GetPreference(int id)
         {
             var preferences = context.Preferences.SingleOrDefault(p => p.Id == id);
 
@@ -33,18 +33,18 @@ namespace CAPstone.Controllers.PreferenceAPI
         }
 
         // POST: api/Preference
-        public Preferences CreatePreferences([FromBody]Preferences preferences)
+        public Preference CreatePreference([FromBody]Preference preference)
         {
             if (!ModelState.IsValid)
                 throw new HttpResponseException(HttpStatusCode.BadRequest);
 
-            context.Preferences.Add(preferences);
+            context.Preferences.Add(preference);
             context.SaveChanges();
-            return preferences;
+            return preference;
         }
 
         // PUT: api/Preference/5
-        public Preferences UpdatePreferences(int id, [FromBody]Preferences preferences)
+        public Preference UpdatePreferences(int id, [FromBody]Preference preferences)
         {
             if (!ModelState.IsValid)
                 throw new HttpResponseException(HttpStatusCode.BadRequest);
@@ -55,7 +55,7 @@ namespace CAPstone.Controllers.PreferenceAPI
                 if (!ModelState.IsValid)
                     throw new HttpResponseException(HttpStatusCode.NotFound);
 
-            preference.Preference = preference.Preference;
+            preference.Preferences = preference.Preferences;
 
             context.SaveChanges();
             return preference;

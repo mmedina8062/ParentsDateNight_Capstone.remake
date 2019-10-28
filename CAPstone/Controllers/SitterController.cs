@@ -10,52 +10,52 @@ using System.Web.Mvc;
 
 namespace CAPstone.Controllers
 {
-    public class ParentController : Controller
+    public class SitterController : Controller
     {
         ApplicationDbContext context;
-        public ParentController()
+        public SitterController()
         {
             context = new ApplicationDbContext();
         }
-        // GET: Parent
+        // GET: Sitter
         public ActionResult Index()
         {
             ViewBag.UserId = User.Identity.GetUserId();
-            var parent = context.Parents.ToList();
-            return View(parent);
+            var sitter = context.Sitters.ToList();
+            return View(sitter);
         }
 
-        // GET: Parent/Details/5
+        // GET: Sitter/Details/5
         public ActionResult Details(int id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Parent parent = context.Parents.Find(id);
-            if (parent == null)
+            Sitter sitter = context.Sitters.Find(id);
+            if (sitter == null)
             {
                 return HttpNotFound();
             }
-            return View(parent);
+            return View(sitter);
         }
 
-        // GET: Parent/Create
+        // GET: Sitter/Create
         public ActionResult Create()
         {
-            Parent parent = new Parent();
-            return View(parent);
+            Sitter sitter = new Sitter();
+            return View(sitter);
         }
 
-        // POST: Parent/Create
+        // POST: Sitter/Create
         [HttpPost]
-        public ActionResult Create(Parent parent)
+        public ActionResult Create(Sitter sitter)
         {
             try
             {
                 // TODO: Add insert logic here
-                parent.ApplicationId = User.Identity.GetUserId();
-                context.Parents.Add(parent);
+                sitter.ApplicationId = User.Identity.GetUserId();
+                context.Sitters.Add(sitter);
                 context.SaveChanges();
                 return RedirectToAction("Index");
             }
@@ -65,31 +65,31 @@ namespace CAPstone.Controllers
             }
         }
 
-        // GET: Parent/Edit/5
+        // GET: Sitter/Edit/5
         public ActionResult Edit(int id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Parent parent = context.Parents.Find(id);
-            if (parent == null)
+            Sitter sitter = context.Sitters.Find(id);
+            if (sitter == null)
             {
                 return HttpNotFound();
             }
 
-            return View(parent);
+            return View(sitter);
         }
 
-        // POST: Parent/Edit/5
+        // POST: Sitter/Edit/5
         [HttpPost]
-        public ActionResult Edit(int id, Parent parent)
+        public ActionResult Edit(int id, Sitter sitter)
         {
             if (ModelState.IsValid)
                 try
                 {
                     // TODO: Add update logic here
-                    context.Entry(parent).State = EntityState.Modified;
+                    context.Entry(sitter).State = EntityState.Modified;
                     context.SaveChanges();
                     return RedirectToAction("Index");
                 }
@@ -97,33 +97,33 @@ namespace CAPstone.Controllers
                 {
                     return View(HttpNotFound());
                 }
-            return View(parent);
+            return View(sitter);
         }
 
-        // GET: Parent/Delete/5
+        // GET: Sitter/Delete/5
         public ActionResult Delete(int id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Parent deletedparent = context.Parents.Find(id);
-            if (deletedparent == null)
+            Sitter deletedsitter = context.Sitters.Find(id);
+            if (deletedsitter == null)
             {
                 return HttpNotFound();
             }
-            return View(deletedparent);
+            return View(deletedsitter);
         }
 
-        // POST: Parent/Delete/5
+        // POST: Sitter/Delete/5
         [HttpPost]
-        public ActionResult Delete(int id, Parent parent)
+        public ActionResult Delete(int id, Sitter sitter)
         {
             try
             {
                 // TODO: Add delete logic here
-                Parent deletedparent = context.Parents.Find(id);
-                context.Parents.Remove(deletedparent);
+                Sitter deletedsitter = context.Sitters.Find(id);
+                context.Sitters.Remove(deletedsitter);
                 context.SaveChanges();
                 return RedirectToAction("Index");
             }
@@ -131,13 +131,6 @@ namespace CAPstone.Controllers
             {
                 return View(HttpNotFound());
             }
-        }
-        public ActionResult DisplayPreferences()
-        {
-            var preferenceURL = $"https://localhost:44323/api/preferences";
-            //var preference = new WebClient().DownloadString(preferenceURL);
-
-            return View(preferenceURL);
         }
     }
 }

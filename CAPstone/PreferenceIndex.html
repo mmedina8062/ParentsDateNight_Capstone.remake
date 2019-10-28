@@ -1,0 +1,36 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Preferences</title>
+    <meta charset="utf-8">
+</head>
+<body>
+    <center>
+        <H2>Please Choose Your Preference(s) Below:</H2>
+        <div id="response">
+            <pre></pre>
+        </div>
+
+        <form id="my-form">
+        </form>
+    </center>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script type="text/javascript" src="./app.js"></script>
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.0.3.min.js"></script>
+    <script>
+        var uri = 'api/preference';
+
+        $(document).ready(function () {
+            $.getJSON(uri)
+                .done(function (data) {
+                    $.each(data, function (key, item) {
+                        $('<li>', { text: formatItem(item) }).appendTo($('#preference'));
+                    });
+                });
+        });
+    </script>
+
+
+
+</body>
+</html>

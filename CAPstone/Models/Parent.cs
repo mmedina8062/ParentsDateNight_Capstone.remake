@@ -18,8 +18,8 @@ namespace CAPstone.Models
         [Display(Name = "Last Name")]
         public string LastName { get; set; }
 
-        [Display(Name = "Street")]
-        public int StreetAddress { get; set; }
+        [Display(Name = "Street Address")]
+        public string StreetAddress { get; set; }
         public string City { get; set; }
         public string State { get; set; }
 

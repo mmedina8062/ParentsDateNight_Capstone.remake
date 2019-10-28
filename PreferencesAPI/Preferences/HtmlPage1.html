@@ -18,13 +18,13 @@
     <script type="text/javascript" src="./app.js"></script>
     <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.0.3.min.js"></script>
     <script>
-        var uri = 'api/preference';
+        var uri = 'api/preferences';
 
         $(document).ready(function () {
             $.getJSON(uri)
                 .done(function (data) {
                     $.each(data, function (key, item) {
-                        $('<li>', { text: formatItem(item) }).appendTo($('#preference'));
+                        $('<li>', { text: formatItem(item) }).appendTo($('#preferences'));
                     });
                 });
         });

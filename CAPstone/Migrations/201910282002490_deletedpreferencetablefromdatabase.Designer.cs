@@ -7,13 +7,13 @@ namespace CAPstone.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.2.0-61023")]
-    public sealed partial class deletedPreferenceFromProjectAndCreatedANewProjectForItInOrderCallTheAPI : IMigrationMetadata
+    public sealed partial class deletedpreferencetablefromdatabase : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(deletedPreferenceFromProjectAndCreatedANewProjectForItInOrderCallTheAPI));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(deletedpreferencetablefromdatabase));
         
         string IMigrationMetadata.Id
         {
-            get { return "201910281926151_deletedPreferenceFromProjectAndCreatedANewProjectForItInOrderCallTheAPI"; }
+            get { return "201910282002490_deletedpreferencetablefromdatabase"; }
         }
         
         string IMigrationMetadata.Source

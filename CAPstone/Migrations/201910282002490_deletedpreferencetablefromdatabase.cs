@@ -3,7 +3,7 @@ namespace CAPstone.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class initialMigrations : DbMigration
+    public partial class deletedpreferencetablefromdatabase : DbMigration
     {
         public override void Up()
         {
@@ -14,7 +14,7 @@ namespace CAPstone.Migrations
                         Id = c.Int(nullable: false, identity: true),
                         FirstName = c.String(),
                         LastName = c.String(),
-                        StreetAddress = c.Int(nullable: false),
+                        StreetAddress = c.String(),
                         City = c.String(),
                         State = c.String(),
                         ZipCode = c.Int(nullable: false),
@@ -103,15 +103,6 @@ namespace CAPstone.Migrations
                 .Index(t => t.Parent_Id);
             
             CreateTable(
-                "dbo.Preferences",
-                c => new
-                    {
-                        Id = c.Int(nullable: false, identity: true),
-                        Preference = c.String(),
-                    })
-                .PrimaryKey(t => t.Id);
-            
-            CreateTable(
                 "dbo.AspNetRoles",
                 c => new
                     {
@@ -142,7 +133,6 @@ namespace CAPstone.Migrations
             DropIndex("dbo.AspNetUsers", "UserNameIndex");
             DropIndex("dbo.Parents", new[] { "ApplicationId" });
             DropTable("dbo.AspNetRoles");
-            DropTable("dbo.Preferences");
             DropTable("dbo.Sitters");
             DropTable("dbo.AspNetUserRoles");
             DropTable("dbo.AspNetUserLogins");

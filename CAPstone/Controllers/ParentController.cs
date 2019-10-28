@@ -132,12 +132,5 @@ namespace CAPstone.Controllers
                 return View(HttpNotFound());
             }
         }
-        public ActionResult DisplayPreferences()
-        {
-            var preferenceURL = $"https://localhost:44323/api/preferences";
-            //var preference = new WebClient().DownloadString(preferenceURL);
-
-            return View(preferenceURL);
-        }
     }
 }

@@ -190,21 +190,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201910251829345_initialMigrations.cs" />
-    <Compile Include="Migrations\201910251829345_initialMigrations.Designer.cs">
-      <DependentUpon>201910251829345_initialMigrations.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201910251901122_changedpropertyforaddressinparentsmodelfrominttostring.cs" />
-    <Compile Include="Migrations\201910251901122_changedpropertyforaddressinparentsmodelfrominttostring.Designer.cs">
-      <DependentUpon>201910251901122_changedpropertyforaddressinparentsmodelfrominttostring.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201910281706521_deletedpreferencelistfromconfiguartions.cs" />
-    <Compile Include="Migrations\201910281706521_deletedpreferencelistfromconfiguartions.Designer.cs">
-      <DependentUpon>201910281706521_deletedpreferencelistfromconfiguartions.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201910281926151_deletedPreferenceFromProjectAndCreatedANewProjectForItInOrderCallTheAPI.cs" />
-    <Compile Include="Migrations\201910281926151_deletedPreferenceFromProjectAndCreatedANewProjectForItInOrderCallTheAPI.Designer.cs">
-      <DependentUpon>201910281926151_deletedPreferenceFromProjectAndCreatedANewProjectForItInOrderCallTheAPI.cs</DependentUpon>
+    <Compile Include="Migrations\201910282002490_deletedpreferencetablefromdatabase.cs" />
+    <Compile Include="Migrations\201910282002490_deletedpreferencetablefromdatabase.Designer.cs">
+      <DependentUpon>201910282002490_deletedpreferencetablefromdatabase.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -281,7 +269,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Preferences\" />
     <Folder Include="Views\Sitter\" />
   </ItemGroup>
   <ItemGroup>
@@ -298,17 +285,8 @@
     <Content Include="Scripts\jquery-3.3.1.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201910251829345_initialMigrations.resx">
-      <DependentUpon>201910251829345_initialMigrations.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201910251901122_changedpropertyforaddressinparentsmodelfrominttostring.resx">
-      <DependentUpon>201910251901122_changedpropertyforaddressinparentsmodelfrominttostring.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201910281706521_deletedpreferencelistfromconfiguartions.resx">
-      <DependentUpon>201910281706521_deletedpreferencelistfromconfiguartions.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201910281926151_deletedPreferenceFromProjectAndCreatedANewProjectForItInOrderCallTheAPI.resx">
-      <DependentUpon>201910281926151_deletedPreferenceFromProjectAndCreatedANewProjectForItInOrderCallTheAPI.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201910282002490_deletedpreferencetablefromdatabase.resx">
+      <DependentUpon>201910282002490_deletedpreferencetablefromdatabase.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

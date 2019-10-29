@@ -267,6 +267,9 @@
     <Content Include="Views\Parent\Edit.cshtml" />
     <Content Include="Views\index.cshtml" />
     <Content Include="Views\Sitter\index.cshtml" />
+    <Content Include="Views\Sitter\create.cshtml" />
+    <Content Include="Views\Sitter\Edit.cshtml" />
+    <Content Include="Views\Sitter\details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

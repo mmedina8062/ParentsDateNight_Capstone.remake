@@ -266,10 +266,10 @@
     <Content Include="Views\Parent\Details.cshtml" />
     <Content Include="Views\Parent\Edit.cshtml" />
     <Content Include="Views\index.cshtml" />
+    <Content Include="Views\Sitter\index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Sitter\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

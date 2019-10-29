@@ -1,17 +1,17 @@
 ﻿(function ($) {
     function processForm(e) {
         var dict = {
-            Preferences: this["preferences"].value
+            Preference: this["preferences"].value
         };
 
         $.ajax({
-            url: 'https://localhost:44352/api/preference',
+            url: 'https://localhost:44307/api/preferences',
             dataType: 'json',
             type: 'post',
             contentType: 'application/json',
             data: JSON.stringify(dict),
             success: function (data, textStatus, jQxhr) {
-                alert("You have successfully added a movie! Click the Generate Movie List button to reload the movies."),
+                alert("Your preference has been added."),
 
                     $('#response pre').html(data);
             },
@@ -27,37 +27,33 @@
 })(jQuery);
 
 
-function GetMovies() {
+function GetPreferences() {
 
     $.ajax({
-        url: 'https://localhost:44352/api/movie',
+        url: 'https://localhost:44307/api/preferences',
         dataType: 'json',
         type: 'Get',
         success: function (data, textStatus, jQxhr) {
             $('tbody').empty();
-            var newMovie = "";
-            newMovie += "<tr>";
-            newMovie += "<th>Title:</th>";
-            newMovie += "<th>Director Name:</th>";
-            newMovie += "<th>Genre:</th>";
-            newMovie += "</tr>";
+            var preferences = "";
+            preferences += "<tr>";
+            preferences += "<th>Preferences:</th>";
+            preferences += "</tr>";
             $.each(data, function (index, value) {
 
 
-                newMovie += "<tr>";
-                newMovie += "<td>" + value.Title + "</td>";
-                newMovie += "<td>" + value.DirectorName + "</td>";
-                newMovie += "<td>" + value.Genre + "</td>";
-                newMovie += "<td><button type ='button' onclick='GetSingleMovie(" + value.MovieId + ")'>Details</button>";
-                newMovie += "<td><button type='button' onclick='DeleteMovie(" + value.MovieId + ")'>Delete</button>";
-                newMovie += "</tr>";
+                preferences += "<tr>";
+                preferences += "<td>" + value.Preference + "</td>";
+                preferences += "<td><button type ='button' onclick='GetSingleMovie(" + value.getElementById + ")'>Details</button>";
+                preferences += "<td><button type='button' onclick='DeleteMovie(" + value.getElementById + ")'>Delete</button>";
+                preferences += "</tr>";
 
 
             });
-            newMovie += "<tr>";
-            newMovie += "<td><button type='button' onclick='MakeForm()'>Add New Movie</button>";
-            newMovie += "</tr>"
-            $('#MovieBody').append(newMovie);
+            preferences += "<tr>";
+            preferences += "<td><button type='button' onclick='MakeForm()'>Add New Preference</button>";
+            preferences += "</tr>"
+            $('#PreferenceBody').append(newMovie);
             $('#my-form').empty();
             $('#edit').empty();
 
@@ -68,28 +64,24 @@ function GetMovies() {
 }
 function MakeForm() {
     var newForm = "";
-    newForm += "<input type='text' name='title' placeholder='Title' />";
-    newForm += "<input type='text' name='director' placeholder='DirectorName' />";
-    newForm += "<input type='text'name='genre' placeholder='Genre'/>";
+    newForm += "<input type='text' name='Preference' placeholder='Preference' />";
     newForm += "<button type='submit'>Submit</button>";
     $('#my-form').append(newForm);
     $('tbody').empty();
 
 
 }
-function GetSingleMovie(id) {
+function GetSinglePreferences(id) {
     $.ajax({
-        url: 'https://localhost:44352/api/movie/' + id,
+        url: 'https://localhost:44307/api/preferences/' + id,
         dataType: 'json',
         type: 'Get',
         success: function (data, textStatus, jQxhr) {
-            var searchedMovies = "";
-            searchedMovies += "<tr>";
-            searchedMovies += "<td>" + data.Title + "</td>";
-            searchedMovies += "<td>" + data.DirectorName + "</td>";
-            searchedMovies += "<td>" + data.Genre + "</td>";
-            searchedMovies += "</tr>";
-            $('#MovieBody').html(searchedMovies);
+            var searchedPreference = "";
+            searchedPreference += "<tr>";
+            searchedPreference += "<td>" + data.Preferences + "</td>";
+            searchedPreference += "</tr>";
+            $('#PreferenceBody').html(searchedPreference);
         }
     })
         .then(MakeTheFrom(id));
@@ -97,25 +89,21 @@ function GetSingleMovie(id) {
 }
 function MakeTheFrom(id) {
     var editForm = "";
-    editForm += " <input type='text'id='title'name='title'placeholder='Title'/>";
-    editForm += " <input type='text'id='director'name='director'placeholder='DirectorName'/>";
-    editForm += "<input type='text'id='genre' name='genre' placeholder='Genre'/>";
-    editForm += "<button type='button' onclick='UpdateMovie(" + id + ")'>Update</button>";
+    editForm += " <input type='text'id='preference'name='preference'placeholder='Title'/>";
+    editForm += "<button type='button' onclick='UpdatePreference(" + id + ")'>Update</button>";
     $('#edit').append(editForm);
 
 
 }
 
-function UpdateMovie(id) {
-    var editMovie = {
-        "Title": document.getElementById('title').value,
-        "DirectorName": document.getElementById('director').value,
-        "Genre": document.getElementById('genre').value,
+function UpdatePreferences(id) {
+    var editPreferences = {
+        "Preferences": document.getElementById('preferences').value,
     };
 
     $.ajax({
         type: 'PUT',
-        url: 'https://localhost:44352/api/movie/' + id,
+        url: 'https://localhost:44307/api/preferences/' + id,
         dataType: 'json',
         data: editMovie,
         success: function () {
@@ -129,13 +117,13 @@ function UpdateMovie(id) {
     });
 
 }
-function DeleteMovie(id) {
+function DeletePreferences(id) {
     $.ajax({
-        url: 'https://localhost:44352/api/movie/' + id,
+        url: 'https://localhost:44307/api/preferences/' + id,
         dataType: 'json',
         type: 'Delete',
         success: function (data, textStatus, jQxhr) {
-            alert("That movie has been deleted. Please Click the button Generate List to see the new list.")
+            alert("Preference has been removed.")
             $('tbody').empty();
         }
 

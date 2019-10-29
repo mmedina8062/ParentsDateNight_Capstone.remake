@@ -17,12 +17,13 @@ namespace Preferences.Controllers
             context = new ApplicationDbContext();
         }
         // GET: api/Preference
-        public IEnumerable<Preference> Get()
+        public IEnumerable<Preference> GetPreferences()
         {
             return context.Preferences.ToList();
         }
 
         // GET: api/Preference/5
+        [HttpGet]
         public Preference GetPreference(int id)
         {
             var preferences = context.Preferences.SingleOrDefault(p => p.Id == id);

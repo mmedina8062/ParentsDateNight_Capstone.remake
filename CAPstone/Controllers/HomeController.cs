@@ -13,9 +13,9 @@ namespace CAPstone.Controllers
             return View();
         }
 
-        public ActionResult About()
+        public ActionResult Magic()
         {
-            ViewBag.Message = "Your application description page.";
+            ViewBag.Message = "It can happen to you, just a simple click away.";
 
             return View();
         }

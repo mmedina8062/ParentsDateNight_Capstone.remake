@@ -173,7 +173,7 @@ namespace CAPstone.Controllers
                     }
                     else
                     {
-                        return RedirectToAction("Create", "Parent");
+                        return RedirectToAction("Login");
                     }
                 }
                 AddErrors(result);

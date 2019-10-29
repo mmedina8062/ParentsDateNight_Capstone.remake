@@ -194,6 +194,18 @@
     <Compile Include="Migrations\201910282002490_deletedpreferencetablefromdatabase.Designer.cs">
       <DependentUpon>201910282002490_deletedpreferencetablefromdatabase.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201910292107123_changedpropertyinsitterclassfromLastNameInitialTojustLastName.cs" />
+    <Compile Include="Migrations\201910292107123_changedpropertyinsitterclassfromLastNameInitialTojustLastName.Designer.cs">
+      <DependentUpon>201910292107123_changedpropertyinsitterclassfromLastNameInitialTojustLastName.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201910292114270_didnotfixlastmigrationallthewayredidit.cs" />
+    <Compile Include="Migrations\201910292114270_didnotfixlastmigrationallthewayredidit.Designer.cs">
+      <DependentUpon>201910292114270_didnotfixlastmigrationallthewayredidit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201910292317260_changedAboutTabInHomeControllerToMagic.cs" />
+    <Compile Include="Migrations\201910292317260_changedAboutTabInHomeControllerToMagic.Designer.cs">
+      <DependentUpon>201910292317260_changedAboutTabInHomeControllerToMagic.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -236,7 +248,7 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\About.cshtml" />
+    <None Include="Views\Home\Magic.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
@@ -265,11 +277,12 @@
     <Content Include="Views\Parent\Create.cshtml" />
     <Content Include="Views\Parent\Details.cshtml" />
     <Content Include="Views\Parent\Edit.cshtml" />
-    <Content Include="Views\index.cshtml" />
-    <Content Include="Views\Sitter\index.cshtml" />
     <Content Include="Views\Sitter\create.cshtml" />
     <Content Include="Views\Sitter\Edit.cshtml" />
     <Content Include="Views\Sitter\details.cshtml" />
+    <Content Include="Views\Sitter\index.cshtml" />
+    <Content Include="Views\Parent\delete.cshtml" />
+    <Content Include="Views\Sitter\delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -290,6 +303,15 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201910282002490_deletedpreferencetablefromdatabase.resx">
       <DependentUpon>201910282002490_deletedpreferencetablefromdatabase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201910292107123_changedpropertyinsitterclassfromLastNameInitialTojustLastName.resx">
+      <DependentUpon>201910292107123_changedpropertyinsitterclassfromLastNameInitialTojustLastName.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201910292114270_didnotfixlastmigrationallthewayredidit.resx">
+      <DependentUpon>201910292114270_didnotfixlastmigrationallthewayredidit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201910292317260_changedAboutTabInHomeControllerToMagic.resx">
+      <DependentUpon>201910292317260_changedAboutTabInHomeControllerToMagic.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

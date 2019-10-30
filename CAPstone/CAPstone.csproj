@@ -290,10 +290,13 @@
     <Content Include="Views\Sitter\index.cshtml" />
     <Content Include="Views\Parent\delete.cshtml" />
     <Content Include="Views\Sitter\delete.cshtml" />
+    <Content Include="Views\Preferences\index.cshtml" />
+    <Content Include="Views\Preferences\create.cshtml" />
+    <Content Include="Views\Preferences\edit.cshtml" />
+    <Content Include="Views\Preferences\delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Preferences\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

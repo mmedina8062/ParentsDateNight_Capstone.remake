@@ -1,5 +1,4 @@
 ﻿using CAPstone.Models;
-using Microsoft.AspNet.Identity;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -10,52 +9,49 @@ using System.Web.Mvc;
 
 namespace CAPstone.Controllers
 {
-    public class ParentController : Controller
+    public class PreferencesController : Controller
     {
         ApplicationDbContext context;
-        public ParentController()
+        public PreferencesController()
         {
             context = new ApplicationDbContext();
         }
-        // GET: Parent
+      
         public ActionResult Index()
         {
-            ViewBag.UserId = User.Identity.GetUserId();
-            var parent = context.Parents.ToList();
-            return View(parent);
+            var preference = context.Preferences.ToList();
+            return View(preference);
         }
 
-        // GET: Parent/Details/5
+     
         public ActionResult Details(int id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Parent parent = context.Parents.Find(id);
-            if (parent == null)
+            Preferences preferences = context.Preferences.Find(id);
+            if (preferences == null)
             {
                 return HttpNotFound();
             }
-            return View(parent);
+            return View(preferences);
         }
 
-        // GET: Parent/Create
+    
         public ActionResult Create()
         {
-            Parent parent = new Parent();
-            return View(parent);
+            Preferences preferences = new Preferences();
+            return View(preferences);
         }
 
-        // POST: Parent/Create
+     
         [HttpPost]
-        public ActionResult Create(Parent parent)
+        public ActionResult Create(Preferences preferences)
         {
             try
             {
-                // TODO: Add insert logic here
-                parent.ApplicationId = User.Identity.GetUserId();
-                context.Parents.Add(parent);
+                context.Preferences.Add(preferences);
                 context.SaveChanges();
                 return RedirectToAction("Index");
             }
@@ -65,31 +61,31 @@ namespace CAPstone.Controllers
             }
         }
 
-        // GET: Parent/Edit/5
+        
         public ActionResult Edit(int id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Parent parent = context.Parents.Find(id);
-            if (parent == null)
+            Preferences preferences = context.Preferences.Find(id);
+            if (preferences == null)
             {
                 return HttpNotFound();
             }
 
-            return View(parent);
+            return View(preferences);
         }
 
-        // POST: Parent/Edit/5
+        
         [HttpPost]
-        public ActionResult Edit(int id, Parent parent)
+        public ActionResult Edit(int id, Preferences preferences)
         {
             if (ModelState.IsValid)
                 try
                 {
                     // TODO: Add update logic here
-                    context.Entry(parent).State = EntityState.Modified;
+                    context.Entry(preferences).State = EntityState.Modified;
                     context.SaveChanges();
                     return RedirectToAction("Index");
                 }
@@ -97,33 +93,33 @@ namespace CAPstone.Controllers
                 {
                     return View(HttpNotFound());
                 }
-            return View(parent);
+            return View(preferences);
         }
 
-        // GET: Parent/Delete/5
+       
         public ActionResult Delete(int id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Parent deletedparent = context.Parents.Find(id);
-            if (deletedparent == null)
+            Preferences deletedpreference = context.Preferences.Find(id);
+            if (deletedpreference == null)
             {
                 return HttpNotFound();
             }
-            return View(deletedparent);
+            return View(deletedpreference);
         }
 
-        // POST: Parent/Delete/5
+        
         [HttpPost]
-        public ActionResult Delete(int id, Parent parent)
+        public ActionResult Delete(int id, Preferences preferences)
         {
             try
             {
                 // TODO: Add delete logic here
-                Parent deletedparent = context.Parents.Find(id);
-                context.Parents.Remove(deletedparent);
+                Preferences deletedpreference = context.Preferences.Find(id);
+                context.Preferences.Remove(deletedpreference);
                 context.SaveChanges();
                 return RedirectToAction("Index");
             }
@@ -131,6 +127,6 @@ namespace CAPstone.Controllers
             {
                 return View(HttpNotFound());
             }
-        } 
+        }
     }
 }

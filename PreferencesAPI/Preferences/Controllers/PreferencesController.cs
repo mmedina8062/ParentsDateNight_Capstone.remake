@@ -23,7 +23,6 @@ namespace Preferences.Controllers
         }
 
         // GET: api/Preference/5
-        [HttpGet]
         public Preference GetPreference(int id)
         {
             var preferences = context.Preferences.SingleOrDefault(p => p.Id == id);

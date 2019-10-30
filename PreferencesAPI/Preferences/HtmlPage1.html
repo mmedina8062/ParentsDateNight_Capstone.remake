@@ -15,14 +15,41 @@
         <br>
 
         <form id="my-form">
-            <input type="text" name="Preference" placeholder="Preferences" />
-
-            <button type="submit">Submit</button>
         </form>
     </Left>
 
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script type="text/javascript" src="./app.js"></script>
-</body>
-</html>
+
+    <script>
+
+        function formatPreference(preference) {
+            return preference;
+        }
+        
+        var apiUrl = 'api/preferences' 
+        $(document).ready(function () {
+            $.getJSON(apiUrl)
+                .done(function (data) {
+                    $.each(data, function (key, item) {
+                        $('<li>', { text: formatPreference() }).appendTo($('#preferences'));
+                    });
+                });
+        });
+ 
+
+
+        function find() {
+            var id = $('#Id').val();
+            $.getJSON(apiUrl + '/' + id)
+                .done(function (data) {
+                    $('#preferences').text(formatItem(data));
+                })
+                .fail(function (jqXHR, textStatus, err) {
+                    $('#preferences').text('Error: ' + err);
+                });
+        }
+    </script>
+</body >
+</html >

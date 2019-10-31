@@ -16,117 +16,38 @@ namespace CAPstone.Controllers
         {
             context = new ApplicationDbContext();
         }
-      
+
         public ActionResult Index()
         {
-            var preference = context.Preferences.ToList();
-            return View(preference);
-        }
-
-     
-        public ActionResult Details(int id)
-        {
-            if (id == null)
+            var preferences = new ParentsPreferenceSelectionEditorViewModel();
+            foreach (var preference in context.Preferences)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Preferences preferences = context.Preferences.Find(id);
-            if (preferences == null)
-            {
-                return HttpNotFound();
-            }
-            return View(preferences);
-        }
-
-    
-        public ActionResult Create()
-        {
-            Preferences preferences = new Preferences();
-            return View(preferences);
-        }
-
-     
-        [HttpPost]
-        public ActionResult Create(Preferences preferences)
-        {
-            try
-            {
-                context.Preferences.Add(preferences);
-                context.SaveChanges();
-                return RedirectToAction("Index");
-            }
-            catch (Exception Error)
-            {
-                return View(Error);
-            }
-        }
-
-        
-        public ActionResult Edit(int id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Preferences preferences = context.Preferences.Find(id);
-            if (preferences == null)
-            {
-                return HttpNotFound();
-            }
-
-            return View(preferences);
-        }
-
-        
-        [HttpPost]
-        public ActionResult Edit(int id, Preferences preferences)
-        {
-            if (ModelState.IsValid)
-                try
+                var editorViewModel = new SelectedPreferencesEditorViewModel()
                 {
-                    // TODO: Add update logic here
-                    context.Entry(preferences).State = EntityState.Modified;
-                    context.SaveChanges();
-                    return RedirectToAction("Index");
-                }
-                catch
-                {
-                    return View(HttpNotFound());
-                }
+                    Id = preference.Id,
+                    preference = string.Format("{0}", preference.Preference),
+                    Selected = true
+                };
+                context.SaveChanges();
+                preferences.Preferences.Add(editorViewModel);
+            }
             return View(preferences);
         }
 
-       
-        public ActionResult Delete(int id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Preferences deletedpreference = context.Preferences.Find(id);
-            if (deletedpreference == null)
-            {
-                return HttpNotFound();
-            }
-            return View(deletedpreference);
-        }
 
-        
         [HttpPost]
-        public ActionResult Delete(int id, Preferences preferences)
+        public ActionResult SubmitSelected(ParentsPreferenceSelectionEditorViewModel parentsPreferenceSelection)
         {
-            try
+            var selectedIds = parentsPreferenceSelection.getSelectedIds();
+            var selectedPreference = from p in context.Preferences
+                                     where selectedIds.Contains(p.Id)
+                                     select p;
+            foreach (var preference in selectedPreference)
             {
-                // TODO: Add delete logic here
-                Preferences deletedpreference = context.Preferences.Find(id);
-                context.Preferences.Remove(deletedpreference);
-                context.SaveChanges();
-                return RedirectToAction("Index");
+                System.Diagnostics.Debug.WriteLine(
+                    string.Format("{0}", preference.Preference));
             }
-            catch
-            {
-                return View(HttpNotFound());
-            }
+            return RedirectToAction("Index");
         }
     }
 }

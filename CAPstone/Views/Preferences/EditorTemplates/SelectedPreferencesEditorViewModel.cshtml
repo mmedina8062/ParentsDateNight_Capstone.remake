@@ -1,0 +1,14 @@
+﻿@model CAPstone.Models.SelectedPreferencesEditorViewModel
+
+    <tr>
+        <td style="text-align:center">
+            @Html.CheckBoxFor(model => model.Selected)
+        </td>
+        <td>
+            @Html.DisplayFor(model => model.preference)
+        </td>
+        <td>
+            @Html.HiddenFor(model => model.Id)
+        </td>
+    </tr>
+

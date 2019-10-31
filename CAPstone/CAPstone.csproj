@@ -212,12 +212,38 @@
     <Compile Include="Migrations\201910301922582_readdedPreference.Designer.cs">
       <DependentUpon>201910301922582_readdedPreference.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201910301953093_readdingMigrationPreferencedataisnotshowingupindatabase.cs" />
+    <Compile Include="Migrations\201910301953093_readdingMigrationPreferencedataisnotshowingupindatabase.Designer.cs">
+      <DependentUpon>201910301953093_readdingMigrationPreferencedataisnotshowingupindatabase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201910302004595_deleteddisplaynamepropertyfrompreferencesmodel.cs" />
+    <Compile Include="Migrations\201910302004595_deleteddisplaynamepropertyfrompreferencesmodel.Designer.cs">
+      <DependentUpon>201910302004595_deleteddisplaynamepropertyfrompreferencesmodel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201910302007124_addeddisplaynamebacktopreferencemodel.cs" />
+    <Compile Include="Migrations\201910302007124_addeddisplaynamebacktopreferencemodel.Designer.cs">
+      <DependentUpon>201910302007124_addeddisplaynamebacktopreferencemodel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201910302038415_addedIListforpreferenceinpreferencemodel.cs" />
+    <Compile Include="Migrations\201910302038415_addedIListforpreferenceinpreferencemodel.Designer.cs">
+      <DependentUpon>201910302038415_addedIListforpreferenceinpreferencemodel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201910311320579_changedpreferencemodelbydeletingilistproperty.cs" />
+    <Compile Include="Migrations\201910311320579_changedpreferencemodelbydeletingilistproperty.Designer.cs">
+      <DependentUpon>201910311320579_changedpreferencemodelbydeletingilistproperty.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201910311523580_addedparentspreferenceselectioneditormodelandselectedpreferenceseditormodelandaddedviewsforbothmodelsandadjustedpreferencecontrollertoreturnbackresultsofchoosenpreference.cs" />
+    <Compile Include="Migrations\201910311523580_addedparentspreferenceselectioneditormodelandselectedpreferenceseditormodelandaddedviewsforbothmodelsandadjustedpreferencecontrollertoreturnbackresultsofchoosenpreference.Designer.cs">
+      <DependentUpon>201910311523580_addedparentspreferenceselectioneditormodelandselectedpreferenceseditormodelandaddedviewsforbothmodelsandadjustedpreferencecontrollertoreturnbackresultsofchoosenpreference.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Parent.cs" />
+    <Compile Include="Models\ParentsPreferenceSelectionEditorViewModel.cs" />
     <Compile Include="Models\Preferences.cs" />
+    <Compile Include="Models\SelectedPreferencesEditorViewModel.cs" />
     <Compile Include="Models\Sitter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
@@ -290,10 +316,8 @@
     <Content Include="Views\Sitter\index.cshtml" />
     <Content Include="Views\Parent\delete.cshtml" />
     <Content Include="Views\Sitter\delete.cshtml" />
+    <Content Include="Views\Preferences\EditorTemplates\SelectedPreferencesEditorViewModel.cshtml" />
     <Content Include="Views\Preferences\index.cshtml" />
-    <Content Include="Views\Preferences\create.cshtml" />
-    <Content Include="Views\Preferences\edit.cshtml" />
-    <Content Include="Views\Preferences\delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -326,6 +350,24 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201910301922582_readdedPreference.resx">
       <DependentUpon>201910301922582_readdedPreference.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201910301953093_readdingMigrationPreferencedataisnotshowingupindatabase.resx">
+      <DependentUpon>201910301953093_readdingMigrationPreferencedataisnotshowingupindatabase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201910302004595_deleteddisplaynamepropertyfrompreferencesmodel.resx">
+      <DependentUpon>201910302004595_deleteddisplaynamepropertyfrompreferencesmodel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201910302007124_addeddisplaynamebacktopreferencemodel.resx">
+      <DependentUpon>201910302007124_addeddisplaynamebacktopreferencemodel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201910302038415_addedIListforpreferenceinpreferencemodel.resx">
+      <DependentUpon>201910302038415_addedIListforpreferenceinpreferencemodel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201910311320579_changedpreferencemodelbydeletingilistproperty.resx">
+      <DependentUpon>201910311320579_changedpreferencemodelbydeletingilistproperty.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201910311523580_addedparentspreferenceselectioneditormodelandselectedpreferenceseditormodelandaddedviewsforbothmodelsandadjustedpreferencecontrollertoreturnbackresultsofchoosenpreference.resx">
+      <DependentUpon>201910311523580_addedparentspreferenceselectioneditormodelandselectedpreferenceseditormodelandaddedviewsforbothmodelsandadjustedpreferencecontrollertoreturnbackresultsofchoosenpreference.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

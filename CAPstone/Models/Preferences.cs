@@ -11,7 +11,8 @@ namespace CAPstone.Models
         [Key]
         public int Id { get; set; }
 
-        [Display(Name = "Choose Preferences")]
+        [Display(Name = "Choose Your Preference(s):")]
         public string Preference { get; set; }
     }
 }
+   

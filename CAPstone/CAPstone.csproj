@@ -236,6 +236,22 @@
     <Compile Include="Migrations\201910311523580_addedparentspreferenceselectioneditormodelandselectedpreferenceseditormodelandaddedviewsforbothmodelsandadjustedpreferencecontrollertoreturnbackresultsofchoosenpreference.Designer.cs">
       <DependentUpon>201910311523580_addedparentspreferenceselectioneditormodelandselectedpreferenceseditormodelandaddedviewsforbothmodelsandadjustedpreferencecontrollertoreturnbackresultsofchoosenpreference.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201910311600275_changedbudgetandmilespropertyfrombeingaforeignkey.cs" />
+    <Compile Include="Migrations\201910311600275_changedbudgetandmilespropertyfrombeingaforeignkey.Designer.cs">
+      <DependentUpon>201910311600275_changedbudgetandmilespropertyfrombeingaforeignkey.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201910311712190_addedmorepropertiestopreferencemodel.cs" />
+    <Compile Include="Migrations\201910311712190_addedmorepropertiestopreferencemodel.Designer.cs">
+      <DependentUpon>201910311712190_addedmorepropertiestopreferencemodel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201910311723033_changedpreferencemodel.cs" />
+    <Compile Include="Migrations\201910311723033_changedpreferencemodel.Designer.cs">
+      <DependentUpon>201910311723033_changedpreferencemodel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201910311827474_madechangestoparentmodel.cs" />
+    <Compile Include="Migrations\201910311827474_madechangestoparentmodel.Designer.cs">
+      <DependentUpon>201910311827474_madechangestoparentmodel.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -306,7 +322,6 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\User\Index.cshtml" />
     <Content Include="Views\Role\Index.cshtml" />
-    <Content Include="Views\Parent\Index.cshtml" />
     <Content Include="Views\Parent\Create.cshtml" />
     <Content Include="Views\Parent\Details.cshtml" />
     <Content Include="Views\Parent\Edit.cshtml" />
@@ -318,9 +333,14 @@
     <Content Include="Views\Sitter\delete.cshtml" />
     <Content Include="Views\Preferences\EditorTemplates\SelectedPreferencesEditorViewModel.cshtml" />
     <Content Include="Views\Preferences\index.cshtml" />
+    <Content Include="Views\Preferences\OnSubmit.cshtml" />
+    <Content Include="Views\Parent\index.cshtml" />
+    <Content Include="Views\Parent\AddBudget.cshtml" />
+    <Content Include="Views\Parent\AddMiles.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\BudgetAndSetMiles\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -368,6 +388,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201910311523580_addedparentspreferenceselectioneditormodelandselectedpreferenceseditormodelandaddedviewsforbothmodelsandadjustedpreferencecontrollertoreturnbackresultsofchoosenpreference.resx">
       <DependentUpon>201910311523580_addedparentspreferenceselectioneditormodelandselectedpreferenceseditormodelandaddedviewsforbothmodelsandadjustedpreferencecontrollertoreturnbackresultsofchoosenpreference.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201910311600275_changedbudgetandmilespropertyfrombeingaforeignkey.resx">
+      <DependentUpon>201910311600275_changedbudgetandmilespropertyfrombeingaforeignkey.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201910311712190_addedmorepropertiestopreferencemodel.resx">
+      <DependentUpon>201910311712190_addedmorepropertiestopreferencemodel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201910311723033_changedpreferencemodel.resx">
+      <DependentUpon>201910311723033_changedpreferencemodel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201910311827474_madechangestoparentmodel.resx">
+      <DependentUpon>201910311827474_madechangestoparentmodel.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

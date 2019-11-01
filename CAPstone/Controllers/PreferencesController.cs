@@ -28,7 +28,6 @@ namespace CAPstone.Controllers
                     preference = string.Format("{0}", preference.Preference),
                     Selected = true
                 };
-                context.SaveChanges();
                 preferences.Preferences.Add(editorViewModel);
             }
             return View(preferences);
@@ -47,7 +46,7 @@ namespace CAPstone.Controllers
                 System.Diagnostics.Debug.WriteLine(
                     string.Format("{0}", preference.Preference));
             }
-            return RedirectToAction("Index");
+            return RedirectToAction("AddBudget", "Parent");
         }
     }
 }

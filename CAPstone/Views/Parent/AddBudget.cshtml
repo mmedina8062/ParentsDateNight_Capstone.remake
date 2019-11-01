@@ -1,0 +1,36 @@
+﻿@model CAPstone.Models.Parent
+
+@{
+    ViewBag.Title = "AddBudget";
+}
+
+<h2>Have a Budget? Enter it below:</h2>
+
+@using (Html.BeginForm())
+{
+    <form id="my-form">
+        <input type="text" name="Budget" placeholder="Enter Your Budget" />
+
+        <input type="button" value="Submit" onclick="AddBudget()">
+        <input type="button" value="Skip" onclick="miles()">
+    </form>
+
+    <script>
+        function miles() {
+            location.href = "https://localhost:44323/Parent/AddMiles";
+        }
+        function AddBudget() {
+            $.ajax({
+                url: "https://localhost:44323/parent/addbudget",
+                type: 'POST',
+                contentType: "application/json; charset=utf-8",
+                dataType: 'json',
+                data: JSON.stringify({
+                    txtValue: $("#txtValue").val()
+                }),
+                async: false
+            });
+        };
+    </script>
+}
+

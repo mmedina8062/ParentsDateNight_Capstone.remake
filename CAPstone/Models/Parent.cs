@@ -29,14 +29,13 @@ namespace CAPstone.Models
         [ForeignKey("ApplicationUser")]
         public string ApplicationId { get; set; }
         public ApplicationUser ApplicationUser { get; set; }
-
-        public int Budget { get; set; }
+        public double Budget { get; set; }
         public int Miles { get; set; }
-
-        // [ForeignKey("Sitters")]
-        public ICollection<Sitter> Sitters { get; set; }
+     
+        /*[ForeignKey("Sitters")]
+        public ICollection<Sitter> Sitters { get; set; }*/
 
         /*[ForeignKey("Date night Ideas")]
-        public ICollection<Preference> Preferences { get; set; }*/
+        public IList<Preferences> Preferences { get; set; }*/
     }
 }

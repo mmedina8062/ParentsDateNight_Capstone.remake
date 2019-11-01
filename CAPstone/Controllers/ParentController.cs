@@ -131,6 +131,34 @@ namespace CAPstone.Controllers
             {
                 return View(HttpNotFound());
             }
-        } 
+        }
+        public ActionResult AddBudget(Parent budget)
+        {
+            /*Parent Budget = context.Parents.Where(p => p.Budget == budget.Budget).FirstOrDefault();
+            context.Parents.Add(Budget);
+            context.SaveChanges();*/
+            return View("index");
+        }
+        /*[HttpPost]
+        public ActionResult AddBudget(int Id, Parent budget)
+        {
+            try
+            {
+                Parent parentFromDb = context.Parents.Find(Id);
+                Parent BudgetFromDb = context.Parents.Where(p => p.Budget == budget.Budget).FirstOrDefault();
+                context.Parents.Add(BudgetFromDb);
+                context.SaveChanges();
+                return RedirectToAction("index");
+            }
+            catch
+            {
+                return HttpNotFound();
+            }
+            
+        }*/
+        public ActionResult AddMiles()
+        {
+            return View();
+        }
     }
 }

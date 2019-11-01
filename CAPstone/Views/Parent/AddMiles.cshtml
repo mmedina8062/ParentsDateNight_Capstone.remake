@@ -1,0 +1,19 @@
+﻿@model CAPstone.Models.Parent
+
+@{
+    ViewBag.Title = "AddMiles";
+}
+
+<h2>Traveling Distance</h2>
+
+@using (Html.BeginForm())
+
+{
+    <form id="my-form">
+        <input type="text" name="Miles" placeholder="Miles" />
+
+        <button type="submit">Submit</button>
+        <input type="button" value="Skip" onclick="miles()">
+    </form>
+}
+

@@ -13,6 +13,11 @@ namespace CAPstone.Models
 
         [Display(Name = "Choose Your Preference(s):")]
         public string Preference { get; set; }
+        //public bool IsChecked { get; set; }
     }
+    /*public class SelectedPreferences
+    {
+        public List<Preferences> Preferences { get; set; }
+    }*/
 }
    

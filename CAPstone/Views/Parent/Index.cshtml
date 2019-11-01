@@ -1,14 +1,16 @@
 ﻿@model IEnumerable<CAPstone.Models.Parent>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "index";
 }
 
-<h2>Index</h2>
+<h2>index</h2>
 
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
+
+
 <table class="table">
     <tr>
         <th>
@@ -28,6 +30,15 @@
         </th>
         <th>
             @Html.DisplayNameFor(model => model.ZipCode)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ApplicationId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Budget)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Miles)
         </th>
         <th></th>
     </tr>
@@ -54,14 +65,19 @@
                 @Html.DisplayFor(modelItem => item.ZipCode)
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.Id })
-                @Html.ActionLink("Details", "Details", new { id = item.Id })
-                @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+                @Html.DisplayFor(modelItem => item.ApplicationId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Budget)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Miles)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                @Html.ActionLink("Details", "Details", new { id = item.Id }) |
             </td>
         </tr>
     }
 
 </table>
-
-
-

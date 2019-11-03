@@ -46,7 +46,7 @@ namespace CAPstone.Controllers
                 System.Diagnostics.Debug.WriteLine(
                     string.Format("{0}", preference.Preference));
             }
-            return RedirectToAction("AddBudget", "Parent");
+            return RedirectToAction("index", "Parent");
         }
     }
 }

@@ -174,7 +174,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="API.cs" />
+    <Compile Include="APIKey.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\IdentityConfig.cs" />
@@ -192,6 +192,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="GoogleMapsAPI.cs" />
     <Compile Include="Migrations\201910282002490_deletedpreferencetablefromdatabase.cs" />
     <Compile Include="Migrations\201910282002490_deletedpreferencetablefromdatabase.Designer.cs">
       <DependentUpon>201910282002490_deletedpreferencetablefromdatabase.cs</DependentUpon>
@@ -251,6 +252,14 @@
     <Compile Include="Migrations\201910311827474_madechangestoparentmodel.cs" />
     <Compile Include="Migrations\201910311827474_madechangestoparentmodel.Designer.cs">
       <DependentUpon>201910311827474_madechangestoparentmodel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201911011620533_changedorderofpropertyinpreferencemodelandaddedpreferenceresultsmodeltostoreselectedpreferences.cs" />
+    <Compile Include="Migrations\201911011620533_changedorderofpropertyinpreferencemodelandaddedpreferenceresultsmodeltostoreselectedpreferences.Designer.cs">
+      <DependentUpon>201911011620533_changedorderofpropertyinpreferencemodelandaddedpreferenceresultsmodeltostoreselectedpreferences.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201911022248369_changedmodelforparentsandpreferencesanddeletedamodel.cs" />
+    <Compile Include="Migrations\201911022248369_changedmodelforparentsandpreferencesanddeletedamodel.Designer.cs">
+      <DependentUpon>201911022248369_changedmodelforparentsandpreferencesanddeletedamodel.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -323,8 +332,6 @@
     <Content Include="Views\User\Index.cshtml" />
     <Content Include="Views\Role\Index.cshtml" />
     <Content Include="Views\Parent\Create.cshtml" />
-    <Content Include="Views\Parent\Details.cshtml" />
-    <Content Include="Views\Parent\Edit.cshtml" />
     <Content Include="Views\Sitter\create.cshtml" />
     <Content Include="Views\Sitter\Edit.cshtml" />
     <Content Include="Views\Sitter\details.cshtml" />
@@ -333,14 +340,14 @@
     <Content Include="Views\Sitter\delete.cshtml" />
     <Content Include="Views\Preferences\EditorTemplates\SelectedPreferencesEditorViewModel.cshtml" />
     <Content Include="Views\Preferences\index.cshtml" />
-    <Content Include="Views\Preferences\OnSubmit.cshtml" />
-    <Content Include="Views\Parent\index.cshtml" />
     <Content Include="Views\Parent\AddBudget.cshtml" />
     <Content Include="Views\Parent\AddMiles.cshtml" />
+    <Content Include="Views\Parent\index.cshtml" />
+    <Content Include="Views\Parent\edit.cshtml" />
+    <Content Include="Views\Parent\details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\BudgetAndSetMiles\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -400,6 +407,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201910311827474_madechangestoparentmodel.resx">
       <DependentUpon>201910311827474_madechangestoparentmodel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201911011620533_changedorderofpropertyinpreferencemodelandaddedpreferenceresultsmodeltostoreselectedpreferences.resx">
+      <DependentUpon>201911011620533_changedorderofpropertyinpreferencemodelandaddedpreferenceresultsmodeltostoreselectedpreferences.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201911022248369_changedmodelforparentsandpreferencesanddeletedamodel.resx">
+      <DependentUpon>201911022248369_changedmodelforparentsandpreferencesanddeletedamodel.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

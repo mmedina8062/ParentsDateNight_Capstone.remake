@@ -26,7 +26,7 @@ namespace CAPstone.Controllers
         }
 
         // GET: Parent/Details/5
-        public ActionResult Details(int id)
+        public ActionResult Details(int? id)
         {
             if (id == null)
             {
@@ -66,7 +66,7 @@ namespace CAPstone.Controllers
         }
 
         // GET: Parent/Edit/5
-        public ActionResult Edit(int id)
+        public ActionResult Edit(int? id)
         {
             if (id == null)
             {
@@ -77,7 +77,6 @@ namespace CAPstone.Controllers
             {
                 return HttpNotFound();
             }
-
             return View(parent);
         }
 
@@ -137,7 +136,7 @@ namespace CAPstone.Controllers
             /*Parent Budget = context.Parents.Where(p => p.Budget == budget.Budget).FirstOrDefault();
             context.Parents.Add(Budget);
             context.SaveChanges();*/
-            return View("index");
+            return View();
         }
         /*[HttpPost]
         public ActionResult AddBudget(int Id, Parent budget)

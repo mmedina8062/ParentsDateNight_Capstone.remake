@@ -25,17 +25,11 @@ namespace CAPstone.Models
 
         [Display(Name = "Zip Code")]
         public int ZipCode { get; set; }
+        public double Budget { get; set; }
+        public int Miles { get; set; }
 
         [ForeignKey("ApplicationUser")]
         public string ApplicationId { get; set; }
         public ApplicationUser ApplicationUser { get; set; }
-        public double Budget { get; set; }
-        public int Miles { get; set; }
-     
-        /*[ForeignKey("Sitters")]
-        public ICollection<Sitter> Sitters { get; set; }*/
-
-        /*[ForeignKey("Date night Ideas")]
-        public IList<Preferences> Preferences { get; set; }*/
     }
 }

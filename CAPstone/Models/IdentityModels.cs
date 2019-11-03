@@ -23,6 +23,7 @@ namespace CAPstone.Models
         public DbSet<Parent> Parents { get; set; }
         public DbSet<Sitter> Sitters { get; set; }
         public DbSet<Preferences> Preferences { get; set; }
+
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)
         {

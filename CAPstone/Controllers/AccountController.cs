@@ -81,6 +81,16 @@ namespace CAPstone.Controllers
             switch (result)
             {
                 case SignInStatus.Success:
+                    ApplicationUser user = await UserManager.FindAsync(model.UserName, model.Password);
+                    // Redirect to User landing page on SignIn, according to Role
+                    if ((UserManager.IsInRole(user.Id, "Parent")))
+                    {
+                        return RedirectToAction("Index", "Home");
+                    }
+                    if ((UserManager.IsInRole(user.Id, "Sitter")))
+                    {
+                        return RedirectToAction("Index", "Sitter");
+                    }
                     return RedirectToLocal(returnUrl);
                 case SignInStatus.LockedOut:
                     return View("Lockout");

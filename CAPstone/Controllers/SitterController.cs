@@ -132,5 +132,11 @@ namespace CAPstone.Controllers
                 return View(HttpNotFound());
             }
         }
+
+        public ActionResult Rating()
+        {
+            return RedirectToAction("Index", "Ratings");
+        }
     }
 }
+

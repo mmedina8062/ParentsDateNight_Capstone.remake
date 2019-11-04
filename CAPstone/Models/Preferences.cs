@@ -13,6 +13,8 @@ namespace CAPstone.Models
 
         [Display(Name = "Choose Your Preference(s):")]
         public string Preference { get; set; }
+        public string LatLong { get; set; }
+        public object GeoLocation { get; internal set; }
     }
     
 }

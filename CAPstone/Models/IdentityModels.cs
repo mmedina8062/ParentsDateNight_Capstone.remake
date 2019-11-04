@@ -33,5 +33,7 @@ namespace CAPstone.Models
         {
             return new ApplicationDbContext();
         }
+
+        public System.Data.Entity.DbSet<CAPstone.Models.Ratings> Ratings { get; set; }
     }
 }

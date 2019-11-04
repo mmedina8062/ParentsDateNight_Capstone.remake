@@ -28,6 +28,10 @@ namespace CAPstone.Models
         public double Budget { get; set; }
         public int Miles { get; set; }
 
+        [ForeignKey("User")]
+        public string UserId { get; set; }
+        public ApplicationUser User { get; set; }
+
         [ForeignKey("ApplicationUser")]
         public string ApplicationId { get; set; }
         public ApplicationUser ApplicationUser { get; set; }

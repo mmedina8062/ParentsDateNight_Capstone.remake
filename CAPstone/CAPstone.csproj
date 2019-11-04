@@ -46,9 +46,48 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="SendGrid, Version=9.12.0.0, Culture=neutral, PublicKeyToken=4f047e93159395ca, processorArchitecture=MSIL">
+      <HintPath>..\packages\Sendgrid.9.12.0\lib\net452\SendGrid.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.Composition" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.IO, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IO.4.3.0\lib\net462\System.IO.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Net.Http, Version=4.1.1.2, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Net.Http.4.3.3\lib\net46\System.Net.Http.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Runtime, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.4.3.0\lib\net462\System.Runtime.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.Algorithms, Version=4.2.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Cryptography.Algorithms.4.3.0\lib\net463\System.Security.Cryptography.Algorithms.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.Encoding, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Cryptography.Encoding.4.3.0\lib\net46\System.Security.Cryptography.Encoding.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.Primitives, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Cryptography.Primitives.4.3.0\lib\net46\System.Security.Cryptography.Primitives.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.X509Certificates, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Cryptography.X509Certificates.4.3.0\lib\net461\System.Security.Cryptography.X509Certificates.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -67,8 +106,6 @@
     <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <Private>True</Private>
       <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Net.Http">
     </Reference>
     <Reference Include="System.Net.Http.WebRequest">
     </Reference>
@@ -186,13 +223,14 @@
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\ParentController.cs" />
     <Compile Include="Controllers\PreferencesController.cs" />
+    <Compile Include="Controllers\RatingsController.cs" />
     <Compile Include="Controllers\RoleController.cs" />
     <Compile Include="Controllers\SitterController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="GoogleMapsAPI.cs" />
+    <Compile Include="GoogleMapsJson.cs" />
     <Compile Include="Migrations\201910282002490_deletedpreferencetablefromdatabase.cs" />
     <Compile Include="Migrations\201910282002490_deletedpreferencetablefromdatabase.Designer.cs">
       <DependentUpon>201910282002490_deletedpreferencetablefromdatabase.cs</DependentUpon>
@@ -261,6 +299,58 @@
     <Compile Include="Migrations\201911022248369_changedmodelforparentsandpreferencesanddeletedamodel.Designer.cs">
       <DependentUpon>201911022248369_changedmodelforparentsandpreferencesanddeletedamodel.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201911030037317_addedratingmodel.cs" />
+    <Compile Include="Migrations\201911030037317_addedratingmodel.Designer.cs">
+      <DependentUpon>201911030037317_addedratingmodel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201911030050020_addedcontrollerandviewsforratingsmodel.cs" />
+    <Compile Include="Migrations\201911030050020_addedcontrollerandviewsforratingsmodel.Designer.cs">
+      <DependentUpon>201911030050020_addedcontrollerandviewsforratingsmodel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201911030105339_deledtedpropertiesandaddedcommentpropertyinratingsmodel.cs" />
+    <Compile Include="Migrations\201911030105339_deledtedpropertiesandaddedcommentpropertyinratingsmodel.Designer.cs">
+      <DependentUpon>201911030105339_deledtedpropertiesandaddedcommentpropertyinratingsmodel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201911030336301_addedmodel.cs" />
+    <Compile Include="Migrations\201911030336301_addedmodel.Designer.cs">
+      <DependentUpon>201911030336301_addedmodel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201911040120354_fixedhtmlindexviewforratingmodel.cs" />
+    <Compile Include="Migrations\201911040120354_fixedhtmlindexviewforratingmodel.Designer.cs">
+      <DependentUpon>201911040120354_fixedhtmlindexviewforratingmodel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201911040218554_changeddoubleratingpropertyinratingsmedoeltoint.cs" />
+    <Compile Include="Migrations\201911040218554_changeddoubleratingpropertyinratingsmedoeltoint.Designer.cs">
+      <DependentUpon>201911040218554_changeddoubleratingpropertyinratingsmedoeltoint.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201911040322026_changedmodels.cs" />
+    <Compile Include="Migrations\201911040322026_changedmodels.Designer.cs">
+      <DependentUpon>201911040322026_changedmodels.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201911040509159_addedalot.cs" />
+    <Compile Include="Migrations\201911040509159_addedalot.Designer.cs">
+      <DependentUpon>201911040509159_addedalot.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201911040742119_addedpropertiestopreferencemodel.cs" />
+    <Compile Include="Migrations\201911040742119_addedpropertiestopreferencemodel.Designer.cs">
+      <DependentUpon>201911040742119_addedpropertiestopreferencemodel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201911040744103_changedback.cs" />
+    <Compile Include="Migrations\201911040744103_changedback.Designer.cs">
+      <DependentUpon>201911040744103_changedback.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201911040923191_changedbootstrap.cs" />
+    <Compile Include="Migrations\201911040923191_changedbootstrap.Designer.cs">
+      <DependentUpon>201911040923191_changedbootstrap.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201911041148593_addedlatandlongtopreferencetobeabletoholdvalue.cs" />
+    <Compile Include="Migrations\201911041148593_addedlatandlongtopreferencetobeabletoholdvalue.Designer.cs">
+      <DependentUpon>201911041148593_addedlatandlongtopreferencetobeabletoholdvalue.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201911041351357_addeduserpropertyinparentmodel.cs" />
+    <Compile Include="Migrations\201911041351357_addeduserpropertyinparentmodel.Designer.cs">
+      <DependentUpon>201911041351357_addeduserpropertyinparentmodel.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -268,6 +358,7 @@
     <Compile Include="Models\Parent.cs" />
     <Compile Include="Models\ParentsPreferenceSelectionEditorViewModel.cs" />
     <Compile Include="Models\Preferences.cs" />
+    <Compile Include="Models\Ratings.cs" />
     <Compile Include="Models\SelectedPreferencesEditorViewModel.cs" />
     <Compile Include="Models\Sitter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -284,6 +375,7 @@
     <Content Include="Content\Site.css" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include=".editorconfig" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -335,7 +427,6 @@
     <Content Include="Views\Sitter\create.cshtml" />
     <Content Include="Views\Sitter\Edit.cshtml" />
     <Content Include="Views\Sitter\details.cshtml" />
-    <Content Include="Views\Sitter\index.cshtml" />
     <Content Include="Views\Parent\delete.cshtml" />
     <Content Include="Views\Sitter\delete.cshtml" />
     <Content Include="Views\Preferences\EditorTemplates\SelectedPreferencesEditorViewModel.cshtml" />
@@ -345,6 +436,14 @@
     <Content Include="Views\Parent\index.cshtml" />
     <Content Include="Views\Parent\edit.cshtml" />
     <Content Include="Views\Parent\details.cshtml" />
+    <Content Include="Views\Ratings\Create.cshtml" />
+    <Content Include="Views\Ratings\Delete.cshtml" />
+    <Content Include="Views\Ratings\Details.cshtml" />
+    <Content Include="Views\Ratings\Edit.cshtml" />
+    <Content Include="Views\Ratings\Index.cshtml" />
+    <Content Include="Views\Sitter\index.cshtml" />
+    <Content Include="Views\Preferences\Details.cshtml" />
+    <Content Include="Views\Parent\SitterEmail.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -413,6 +512,45 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201911022248369_changedmodelforparentsandpreferencesanddeletedamodel.resx">
       <DependentUpon>201911022248369_changedmodelforparentsandpreferencesanddeletedamodel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201911030037317_addedratingmodel.resx">
+      <DependentUpon>201911030037317_addedratingmodel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201911030050020_addedcontrollerandviewsforratingsmodel.resx">
+      <DependentUpon>201911030050020_addedcontrollerandviewsforratingsmodel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201911030105339_deledtedpropertiesandaddedcommentpropertyinratingsmodel.resx">
+      <DependentUpon>201911030105339_deledtedpropertiesandaddedcommentpropertyinratingsmodel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201911030336301_addedmodel.resx">
+      <DependentUpon>201911030336301_addedmodel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201911040120354_fixedhtmlindexviewforratingmodel.resx">
+      <DependentUpon>201911040120354_fixedhtmlindexviewforratingmodel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201911040218554_changeddoubleratingpropertyinratingsmedoeltoint.resx">
+      <DependentUpon>201911040218554_changeddoubleratingpropertyinratingsmedoeltoint.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201911040322026_changedmodels.resx">
+      <DependentUpon>201911040322026_changedmodels.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201911040509159_addedalot.resx">
+      <DependentUpon>201911040509159_addedalot.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201911040742119_addedpropertiestopreferencemodel.resx">
+      <DependentUpon>201911040742119_addedpropertiestopreferencemodel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201911040744103_changedback.resx">
+      <DependentUpon>201911040744103_changedback.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201911040923191_changedbootstrap.resx">
+      <DependentUpon>201911040923191_changedbootstrap.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201911041148593_addedlatandlongtopreferencetobeabletoholdvalue.resx">
+      <DependentUpon>201911041148593_addedlatandlongtopreferencetobeabletoholdvalue.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201911041351357_addeduserpropertyinparentmodel.resx">
+      <DependentUpon>201911041351357_addeduserpropertyinparentmodel.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

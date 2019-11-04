@@ -1,10 +1,13 @@
 ﻿using CAPstone.Models;
 using Microsoft.AspNet.Identity;
+using SendGrid;
+using SendGrid.Helpers.Mail;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using System.Net;
+using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 
@@ -23,6 +26,42 @@ namespace CAPstone.Controllers
             ViewBag.UserId = User.Identity.GetUserId();
             var parent = context.Parents.ToList();
             return View(parent);
+        }
+        public ActionResult ViewNearBySitters(int zipcode)
+        {
+            var customers = GetSittersSharingZipCode().Where(s => s.ZipCode == zipcode);
+            return View("ViewNearBySitters", customers);
+        }
+        /*public ActionResult VerifySitterNeeded(int sitterId)
+        {
+            //after confirmed send notification via email to sitter
+            var sitter = context.Sitters.SingleOrDefault(s => s.Id == sitterId);
+
+        }*/
+        public async Task<ActionResult> SitterEmail(int id)
+        {
+            Sitter sitter = context.Sitters.Include(p => p.User).FirstOrDefault(p => p.Id == id);
+
+            return View(sitter);
+
+        }
+
+        [HttpPost]
+        public async Task<ActionResult> SitterEmail(Sitter sitter)
+        {
+
+            string email = sitter.User.Email;
+            var client = new SendGridClient(APIKey.sendGridAPI);
+            var from = new EmailAddress("parentsdatenights@gmail.com", "Parents");
+            var subject = "Sitter Request";
+            var to = new EmailAddress("sittersiter10@gmail.com", "Sitters");
+            var plainTextContent = "Your Service Is Needed";
+            var htmlContent = "<strong>Your service is needed, please confirm or cancel</strong>";
+            var msg = MailHelper.CreateSingleEmail(from, to, subject, plainTextContent, htmlContent);
+            var response = await client.SendEmailAsync(msg);
+            var startdate = DateTime.Today;
+
+            return RedirectToAction("Index");
         }
 
         // GET: Parent/Details/5
@@ -133,19 +172,18 @@ namespace CAPstone.Controllers
         }
         public ActionResult AddBudget(Parent budget)
         {
-            /*Parent Budget = context.Parents.Where(p => p.Budget == budget.Budget).FirstOrDefault();
+            Parent Budget = context.Parents.Where(p => p.Budget == budget.Budget).FirstOrDefault();
             context.Parents.Add(Budget);
-            context.SaveChanges();*/
+            context.SaveChanges();
             return View();
         }
-        /*[HttpPost]
+        [HttpPost]
         public ActionResult AddBudget(int Id, Parent budget)
         {
             try
             {
                 Parent parentFromDb = context.Parents.Find(Id);
                 Parent BudgetFromDb = context.Parents.Where(p => p.Budget == budget.Budget).FirstOrDefault();
-                context.Parents.Add(BudgetFromDb);
                 context.SaveChanges();
                 return RedirectToAction("index");
             }
@@ -153,9 +191,36 @@ namespace CAPstone.Controllers
             {
                 return HttpNotFound();
             }
-            
-        }*/
-        public ActionResult AddMiles()
+
+        }
+        public ActionResult AddMiles(Parent miles)
+        {
+            /*Parent setMiles = context.Parents.Where(p => p.Miles == miles.Miles).FirstOrDefault();
+            context.Parents.Add(setMiles);
+            context.SaveChanges();*/
+            return View("GenerateStaticMapUrlForSeletedPreference", "Preferences");
+        }
+
+        private IQueryable<Sitter> GetSittersSharingZipCode()
+        {
+            var parent = GetParent();
+            return context.Sitters.Where(c => c.ZipCode == parent.ZipCode);
+        }
+
+        private Parent GetParent()
+        {
+            try
+            {
+                var currentUserId= User.Identity.GetUserId();
+                var activeParent = context.Parents.SingleOrDefault(p => p.ApplicationId == currentUserId);
+                return activeParent;
+            }
+            catch
+            {
+                throw new Exception("Not able to find your location");
+            }
+        }
+        public ActionResult VerifyIfSitterIsNeeded()
         {
             return View();
         }

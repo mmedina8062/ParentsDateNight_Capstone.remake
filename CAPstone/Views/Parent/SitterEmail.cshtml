@@ -1,0 +1,15 @@
+﻿@model CAPstone.Models.Parent
+
+@{
+    ViewBag.Title = "SitterEmail";
+}
+
+<h2> Would you like a Sitter?</h2>
+
+
+@using (Html.BeginForm("RefillEmail"))
+{
+    @Html.HiddenFor(Model => Model.User.Email);
+    <button type="submit">Yes</button>
+
+}

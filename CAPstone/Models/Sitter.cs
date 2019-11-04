@@ -20,8 +20,11 @@ namespace CAPstone.Models
 
         [Display(Name = "Zip Code")]
         public int ZipCode { get; set; }
-
         public string Details { get; set; }
+
+        [ForeignKey("User")]
+        public string UserId { get; set; }
+        public ApplicationUser User { get; set; }
 
         [ForeignKey("ApplicationUser")]
         public string ApplicationId { get; set; }

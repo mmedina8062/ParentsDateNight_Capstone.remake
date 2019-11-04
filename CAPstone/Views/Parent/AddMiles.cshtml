@@ -7,13 +7,14 @@
 <h2>Traveling Distance</h2>
 
 @using (Html.BeginForm())
-
 {
     <form id="my-form">
         <input type="text" name="Miles" placeholder="Miles" />
-
-        <button type="submit">Submit</button>
-        <input type="button" value="Skip" onclick="miles()">
+        <input type="button" value="Submit" onclick="@Html.ActionLink("GenerateStaticMapUrlForSeletedPreference", "Preference")";  />
+        <input type="button" value="Skip" onclick="@Html.ActionLink(" GenerateStaticMapUrlForSeletedPreference", "Preference")";' />
     </form>
-}
 
+
+    <script src="https://maps.googleapis.com/maps/">
+    </script>
+}
